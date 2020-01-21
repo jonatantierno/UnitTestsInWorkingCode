@@ -8,8 +8,11 @@ class FileLogger(private val fileName: String) {
     private val formatter: DateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     fun log(message: String) {
-        val time = LocalDateTime.now().format(formatter);
-        File(fileName).appendText("$time - $message");
+        File(fileName).appendText(log(LocalDateTime.now(), message));
     }
 
+    fun log(now: LocalDateTime, message: String): String {
+        val time = now.format(formatter);
+        return "$time - $message"
+    }
 }
