@@ -1,10 +1,7 @@
-package jonatantierno
+package jonatantierno.infrastructure
 
+import jonatantierno.happyzone.Clock
 import java.time.LocalDateTime
-
-interface Clock {
-    fun now(): LocalDateTime
-}
 
 class RealClock: Clock {
     override fun now(): LocalDateTime {

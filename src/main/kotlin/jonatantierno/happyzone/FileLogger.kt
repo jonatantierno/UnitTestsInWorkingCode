@@ -1,10 +1,9 @@
-package jonatantierno
+package jonatantierno.happyzone
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class FileLogger(private val clock: Clock, private val store: Store) {
-    constructor(fileName: String): this(RealClock(), FileStore(fileName))
 
     private val formatter: DateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 

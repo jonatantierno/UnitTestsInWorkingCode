@@ -3,15 +3,16 @@ package jonatantierno
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import jonatantierno.happyzone.FileLogger
+import jonatantierno.happyzone.Store
 import org.junit.Test
 import java.time.Clock
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
-import kotlin.test.assertEquals
 
 class FileLoggerTest {
-    val clock = mockk<jonatantierno.Clock>()
+    val clock = mockk<jonatantierno.happyzone.Clock>()
     val store = mockk<Store>(relaxed = true)
 
     @Test
