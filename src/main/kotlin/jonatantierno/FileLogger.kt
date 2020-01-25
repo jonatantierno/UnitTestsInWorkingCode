@@ -1,20 +1,16 @@
 package jonatantierno
 
-import java.io.File
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class FileLogger(private val fileName: String) {
+class FileLogger(private val storage: Storage, private val clock: Clock) {
+    constructor(file: String): this(FileStorage(file), RealClock)
 
     private val formatter: DateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     fun log(level: Level, message: String) {
-        File(fileName).appendText(log(level, message, LocalDateTime.now()))
+        storage.store("${clock.now().format(formatter)} - $level - $message\n")
     }
-    fun log(level: Level, message: String, localDateTime: LocalDateTime): String =
-        format(level, localDateTime.format(formatter), message)
 
-    fun format(level: Level, time: String?, message: String) = "$time - $level - $message\n"
 }
 
 enum class Level {DEBUG, INFO, ERROR}
