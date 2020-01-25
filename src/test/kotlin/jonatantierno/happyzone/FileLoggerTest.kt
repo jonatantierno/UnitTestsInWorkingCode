@@ -1,11 +1,10 @@
-package jonatantierno
+package jonatantierno.happyzone
 
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Test
 import java.time.LocalDateTime
-import kotlin.test.assertEquals
 
 class FileLoggerTest {
     @Test
